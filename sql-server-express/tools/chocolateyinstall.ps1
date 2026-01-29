@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop';
 
-if ([Version] (Get-CimInstance Win32_OperatingSystem).Version -lt [version] "10.0.17763") {
+if ([Version] (Get-CimInstance Win32_OperatingSystem).Version -lt [version] "10.0.17763.0") {
     Write-Error "SQL Server 2025 requires a minimum of Windows 10 or Windows Server 2019"
 }
 
