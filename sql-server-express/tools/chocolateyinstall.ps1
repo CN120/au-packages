@@ -1,12 +1,12 @@
 ﻿$ErrorActionPreference = 'Stop';
 
-if ([Version] (Get-CimInstance Win32_OperatingSystem).Version -lt [version] "10.0.0.0") {
-    Write-Error "SQL Server 2022 requires a minimum of Windows 10 or Windows Server 2016"
+if ([Version] (Get-CimInstance Win32_OperatingSystem).Version -lt [version] "10.0.17763") {
+    Write-Error "SQL Server 2025 requires a minimum of Windows 10 or Windows Server 2019"
 }
 
 $packageName= $env:ChocolateyPackageName
-$url64      = 'https://download.microsoft.com/download/3/8/d/38de7036-2433-4207-8eae-06e247e17b25/SQLEXPR_x64_ENU.exe'
-$checksum   = '2E61C8BBDE6021F9026C54AD9DB4BBB1227E68761D4C00A6A50A2C70FE7AFE05'
+$url64      = 'https://download.microsoft.com/download/dea8c210-c44a-4a9d-9d80-0c81578860c5/ENU/SQLEXPR_x64_ENU.exe'
+$checksum   = '74AA90C11202A5524E769B9BC22531BAEF22D91E9B2D2E8C3CB99E89A65C5297'
 $silentArgs = "/IACCEPTSQLSERVERLICENSETERMS /Q /ACTION=install /INSTANCEID=SQLEXPRESS /INSTANCENAME=SQLEXPRESS /UPDATEENABLED=FALSE"
 
 $tempDir = Join-Path (Get-Item $env:TEMP).FullName "$packageName"
